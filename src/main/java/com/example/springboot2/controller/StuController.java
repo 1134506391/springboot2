@@ -1,5 +1,7 @@
 package com.example.springboot2.controller;
 
+import com.example.springboot2.pojo.Student;
+import com.example.springboot2.util.JSONResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,5 +44,20 @@ public class StuController {
     @DeleteMapping("delete")
     public String deleteStu(){
         return "删除Stu";
+    }
+
+    @GetMapping("getStudent")
+    public JSONResult getStudent(){
+       Student stu =  new Student();
+       stu.setName("bbb");
+       stu.setAge(10);
+
+       Student stu2 = new Student("ccc",30);
+       log.debug(stu.toString());
+        log.debug(stu.toString());
+        log.debug(stu.toString());
+        log.debug(stu.toString());
+        return JSONResult.ok(stu);
+//        return JSONResult.errorMsg("调用接口错误");
     }
 }
