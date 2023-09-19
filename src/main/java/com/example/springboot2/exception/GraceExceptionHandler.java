@@ -14,4 +14,10 @@ public class GraceExceptionHandler {
     public JSONResult returnMaxFileSizeLimit(FileSizeLimitExceededException e){
         return new JSONResult(400,"文件大小不能超过100KB","{}");
     }
+
+    @ExceptionHandler(MyCustomException.class)
+    @ResponseBody
+    public JSONResult returnMyCustomException(MyCustomException e){
+        return JSONResult.errorMsg(e.getMessage());
+    }
 }
