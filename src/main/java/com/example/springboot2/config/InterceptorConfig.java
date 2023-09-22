@@ -1,5 +1,6 @@
 package com.example.springboot2.config;
 
+import com.example.springboot2.interceptor.LoginInterceptor;
 import com.example.springboot2.interceptor.UserInfoInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,8 +14,15 @@ public class InterceptorConfig implements WebMvcConfigurer {
         return new UserInfoInterceptor();
     }
 
+    @Bean
+    public LoginInterceptor loginInterceptor() {
+        return new LoginInterceptor();
+    }
+
+
     public void addInterceptors(InterceptorRegistry registry){
-        registry.addInterceptor(userInfoInterceptor())
-                .addPathPatterns(("/upload"));
+        registry.addInterceptor(loginInterceptor())
+                .addPathPatterns("/**")
+                .excludePathPatterns("/login");//开放登录路径
     }
 }
