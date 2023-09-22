@@ -22,7 +22,9 @@ public class InterceptorConfig implements WebMvcConfigurer {
 
     public void addInterceptors(InterceptorRegistry registry){
         registry.addInterceptor(loginInterceptor())
-                .addPathPatterns("/**")
-                .excludePathPatterns("/login");//开放登录路径
+                .excludePathPatterns("/**");
+//                .addPathPatterns("/**")
+//                .excludePathPatterns("/login");//开放登录路径
+
     }
 }
