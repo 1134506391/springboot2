@@ -1,8 +1,12 @@
 package com.example.springboot2.pojo;
 
+
+import javax.validation.constraints.NotBlank;
+
 public class User {
     private Integer id;
 
+    @NotBlank(message = "username不能为空")
     private String name;
 
     private Integer age;

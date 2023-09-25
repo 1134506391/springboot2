@@ -3,9 +3,11 @@ package com.example.springboot2.controller;
 import com.example.springboot2.pojo.User;
 import com.example.springboot2.service.UserService;
 import com.example.springboot2.util.JSONResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.Map;
 
 @RestController
@@ -19,7 +21,7 @@ public class UserController {
     }
 
     @PostMapping("/insert")
-    public JSONResult insert(@RequestBody User user) {
+    public JSONResult insert(@Valid @RequestBody User user) {
         userService.insert(user);
         return JSONResult.ok();
     }
