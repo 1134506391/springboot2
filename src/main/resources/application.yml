@@ -1,6 +1,3 @@
-server:
-  port: 8088
-
 web:
   upload-path: F:/test/java/springboot2/src/main/resources/upload/
 jwt:
@@ -10,6 +7,8 @@ jwt:
   expireTime: 30 #token有效时间 (分钟) 建议一小时以上
 
 spring:
+  profiles:
+    active: dev
   servlet:
     multipart:
       max-file-size: 100000KB  # ?????????????????????????
