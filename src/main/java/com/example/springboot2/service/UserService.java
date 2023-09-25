@@ -1,14 +1,18 @@
 package com.example.springboot2.service;
 
+
+import com.example.springboot2.domain.User;
+import com.example.springboot2.domain.UserExample;
 import com.example.springboot2.mapper.UserMapper;
-import com.example.springboot2.pojo.User;
-import com.example.springboot2.pojo.UserExample;
+
+import com.example.springboot2.req.UserReq;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +43,10 @@ public class UserService {
         return map;
     }
 
-    public void insert(User user) {
+    public void insert(UserReq req) {
+        User user = new User();
+        user.setName(req.getName());
+        user.setAge(req.getAge());
         userMapper.insert(user);
     }
 

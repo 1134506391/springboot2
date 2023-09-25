@@ -1,6 +1,6 @@
 package com.example.springboot2.controller;
 
-import com.example.springboot2.pojo.Student;
+import com.example.springboot2.domain.Student;
 import com.example.springboot2.util.JSONResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

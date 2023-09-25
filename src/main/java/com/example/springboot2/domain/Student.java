@@ -1,4 +1,4 @@
-package com.example.springboot2.pojo;
+package com.example.springboot2.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

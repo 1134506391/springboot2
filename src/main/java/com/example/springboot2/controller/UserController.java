@@ -1,9 +1,10 @@
 package com.example.springboot2.controller;
 
-import com.example.springboot2.pojo.User;
+
+import com.example.springboot2.domain.User;
+import com.example.springboot2.req.UserReq;
 import com.example.springboot2.service.UserService;
 import com.example.springboot2.util.JSONResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -21,8 +22,8 @@ public class UserController {
     }
 
     @PostMapping("/insert")
-    public JSONResult insert(@Valid @RequestBody User user) {
-        userService.insert(user);
+    public JSONResult insert(@Valid @RequestBody UserReq req) {
+        userService.insert(req);
         return JSONResult.ok();
     }
 

@@ -1,7 +1,7 @@
 package com.example.springboot2.mapper;
 
-import com.example.springboot2.pojo.User;
-import com.example.springboot2.pojo.UserExample;
+import com.example.springboot2.domain.User;
+import com.example.springboot2.domain.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
