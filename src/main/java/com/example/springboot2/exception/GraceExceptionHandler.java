@@ -38,4 +38,11 @@ public class GraceExceptionHandler {
     public JSONResult returnMyCustomException(MethodArgumentNotValidException e){
         return JSONResult.errorException(e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
     }
+
+    @ExceptionHandler(ArithmeticException.class)
+    @ResponseBody
+    public JSONResult returnMyCustomException(ArithmeticException e){
+        return JSONResult.errorException(e.getMessage());
+    }
+
 }

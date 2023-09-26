@@ -10,6 +10,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -56,5 +57,24 @@ public class UserService {
 
     public void delete(Integer id) {
         userMapper.deleteByPrimaryKey(id);
+    }
+
+    @Transactional
+    public void transactional(){
+        //1. 新增
+        //2. 异常
+        //3. 修改
+        //4. 事务要么都成功，要么都失败,因为中间过程中有异常，所以会回滚,
+        User user = new User();
+        user.setName("ccc");
+        user.setAge(10);
+        userMapper.insert(user);
+
+        int newId = 100 / 0; //异常
+        log.info("newId"+newId);
+        User user2 = new User();
+        user2.setId(1);
+        user2.setName("111111");
+        userMapper.updateByPrimaryKeySelective(user2);
     }
 }
