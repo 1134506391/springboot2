@@ -44,5 +44,4 @@ public class GraceExceptionHandler {
     public JSONResult returnMyCustomException(ArithmeticException e){
         return JSONResult.errorException(e.getMessage());
     }
-
 }

@@ -1,10 +1,6 @@
 package com.example.springboot2;
 
-import com.example.springboot2.domain.Student;
-import com.example.springboot2.domain.User;
-import com.example.springboot2.req.UserReq;
 import com.example.springboot2.service.StudentScoreService;
-import com.example.springboot2.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
