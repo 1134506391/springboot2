@@ -23,3 +23,9 @@ spring:
 mybatis:
   type-aliases-package: com.example.springboot2.pojo
   mapper-locations: classpath:/mapper/**/*.xml
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+

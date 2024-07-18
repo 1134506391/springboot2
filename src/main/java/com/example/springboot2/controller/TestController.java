@@ -1,13 +1,13 @@
 package com.example.springboot2.controller;
 
+import com.example.springboot2.req.UserSaveReq;
+import com.example.springboot2.resp.CommonResp;
 import com.example.springboot2.service.UserService;
 import com.example.springboot2.util.JSONResult;
 import com.example.springboot2.util.MyAsyncTask;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -34,4 +34,9 @@ public class TestController {
         return JSONResult.ok("事务测试");
     }
 
+    @PostMapping("saveObject")
+    public JSONResult saveObject(@RequestBody UserSaveReq req){
+        userService.save(req);
+        return JSONResult.ok("保存对象");
+    }
 }
